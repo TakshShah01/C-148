@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lights and Shadows</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets timeout="10000">
+        
+
+      <a-asset-item id="bench" src="./assets/bench/scene.gltf"></a-asset-item>
+      <a-asset-item id="street" src="./assets/street/scene.gltf"></a-asset-item>
+      <a-asset-item id="lamp" src="./assets/lamp/scene.gltf"></a-asset-item>
+      <a-asset-item id="cat" src="./assets/cat/scene.gltf"></a-asset-item>
+      <a-asset-item id="girl" src="./assets/girl/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-sky color="white"></a-sky>
+
+      <a-box id="backgroung-img" src="./assets/background.jpg" position="0 0 -3" width="25" height="25">
+      </a-box>
+      <!--street-->
+      <a-entity shadow="recieve:true;">
+       <a-entity scale="0 0.2 0.3" gltf-model="#street" position="0 0 -1" rotation="0 90 0"></a-entity>
+      </a-entity>
+       <!--bench-->
+       <a-entity scale="1 1 1" gltf-model="#bench" position="0 0 1" shadow="cast:true;"></a-entity>
+       <!--street lamp-->
+       <a-entity scale="0.5 0.5 0.5" gltf-model="#bench" position="4 0 0" shadow="cast:true;"></a-entity>
+       <!--cat-->
+       <a-entity scale="0.05 0.05 0.05" gltf-model="#cat" position="0 20 0" shadow="cast:true;"></a-entity>
+       <!--girl-->
+       <a-entity scale="0.005 0.005 0.005" gltf-model="#girl" position="2 0.5 3" shadow="cast:true;"></a-entity>
+       <!--camera-->
+       <a-camera look-controls-enabled wasd-controls-enabled="0 5 13"></a-camera>
+
+       <!--lights-->
+        <a-entity lights="type: point; castShadow:true; color:white; intensity:2 " position="5 5 3"></a-entity>
+        </a-entity>
+        <a-entity light="type:ambient;"></a-entity>
+      
+    </a-scene>
+  </body>
+</html>
